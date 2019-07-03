@@ -1,0 +1,27 @@
+<h1>Ewha Class 정보!</h1>
+<div>
+    <form action = "{% url 'filter' %}" method= 'get'>
+        <button type="submit" name="classification" value="Liberal Arts Courses">Liberal Arts Courses</button>
+    </form>
+    <form action = "{% url 'filter' %}" method= 'get'>
+            <button type="submit" name="classification" value="Major foundation">Major foundation</button>
+    </form>
+    <form action = "{% url 'filter' %}" method= 'get'>
+            <button type="submit" name="classification" value="Major elective">Major elective</button>
+    </form>
+    <form action = "{% url 'filter' %}" method= 'get'>
+            <button type="submit" name="classification" value="Major requisite">Major requisite</button>
+    </form>
+</div>
+{% for class in classes.all %}
+<div>
+    course no : {{ class.courseno }}<br>
+    class no : {{ class.classno }}<br>
+    title : {{ class.title}}<br>
+    classification : {{ class.classification}}<br>
+    instructor : {{ class.instructor }}<br>
+    credit : {{ class.credit }}<br>
+    hour : {{ class.hour }}<br>
+    <hr>
+</div>
+{% endfor %}
